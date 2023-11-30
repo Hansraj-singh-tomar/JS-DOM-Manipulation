@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>insertAdjacentHTML | prepend | insertBefore</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <!---------------------- Data-set -------------------->
+    <div id="user" data-id="1234" data-name="John Doe">By his Grace</div>
+
+    <!------------------ insertAdjacentHTML --------------------->
+    <!-- beforebegin -->
+    <p>
+      <!-- afterbegin -->
+      fooo
+      <!-- beforeend -->
+    </p>
+    <!-- afterend -->
+
+    <!-- Another example -->
+    <div id="myDiv">This is the original content.</div>
+    <button onclick="insertContent()">Insert Content</button>
+  </body>
+  <!-- insertAdjacentHTML -->
+  <script>
+    // --------------- insertAdjacentHTML() ------------------------
+    // syntax :- element.insertAdjacentHTML(position, text);
+    // position - "beforebegin", "afterbegin", "beforeend", "afterend"
+
+    function insertContent() {
+      var myDiv = document.getElementById("myDiv");
+
+      // Insert content before the div
+      myDiv.insertAdjacentHTML("beforebegin", "<p>Before the div</p>");
+
+      // Insert content after the div
+      myDiv.insertAdjacentHTML("afterend", "<p>After the div</p>");
+    }
+
+    // Prepend
+    var parentElement = document.getElementById("parent");
+    var newChildElement = document.createElement("div");
+    parentElement.prepend(newChildElement);
+
+    // cloneNode(deep)
+    var originalElement = document.getElementById("original");
+    var clonedElement = originalElement.cloneNode(true); // Create a deep copy
+  </script>
+
+  <!-- Data-set -->
+  <script>
+    /* Get the div by its id */
+    const user = document.getElementById("user");
+
+    /* Add two datasets (dataset-id and dataset-name) */
+    user.dataset.id = "1234";
+    user.dataset.name = "John Doe";
+  </script>
+</html>

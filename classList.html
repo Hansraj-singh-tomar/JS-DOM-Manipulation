@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>classList</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <div id="navigation" class="navbar active">
+      <ul>
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Search</a>
+      </ul>
+    </div>
+    <h1 id="color" class="pink">Please choose a color</h1>
+  </body>
+  <script>
+    // Get the navigation by id
+    const navigation = document.querySelector("#navigation");
+
+    console.log(navigation.className); //=> "navbar active"
+    console.log(navigation.classList); //=> DOMTokenList(2) ['navbar', 'active', value: 'navbar active']
+    console.log(navigation.classList[0]); //=> "navbar"
+    console.log(navigation.classList[1]); //=> "active"
+    // classList.add()
+    navigation.classList.add("open", "close", "greet", "salute");
+    console.log(navigation.classList); //DOMTokenList(6) ['navbar', 'active', 'open', 'close', 'greet', 'salute', value: 'navbar active open close greet salute']
+    console.log(navigation.classList[2]); //=> "open"
+
+    // classList.contains()
+    console.log(navigation.classList.contains("open")); // true
+
+    // classList.remove()
+    /* remove three class names */
+    navigation.classList.remove("navbar", "open", "close");
+
+    // classList.toggle()
+    // onToggle it will remove and add class for that
+    /* Get the heading element for the DOM */
+    const heading = document.getElementById("color");
+
+    heading.classList.toggle("pink"); //=> false
+    heading.classList.toggle("pink"); //=> true
+  </script>
+
+  <script>
+    // removeChild
+    // remove()
+    // replace()
+    // appendChild
+  </script>
+</html>
